@@ -1,3 +1,6 @@
+//i don't understand why this doesn't work
+
+
 import java.io.*;
 import java.util.*;
 
@@ -10,7 +13,6 @@ public class Quicksort {
     }
 
     public int partition(int[] a, int lower, int upper){
-	int index = lower;
 	int pivotIndex = 0;
 	if (a.length == 1)
 	    return 0;
@@ -21,16 +23,20 @@ public class Quicksort {
 	else 
 	    pivotIndex = (upper+lower)/2;
 	int pivot = a[pivotIndex];
-
-	swap(a, pivotIndex, upper);
-	for (int i = lower; i < upper; i++){
-	    if (a[i] <= pivot)
-		swap(a, i, index++);
+	while (lower <= upper && upper < a.length && lower < a.length){
+	    while (a[lower] <= pivot)
+		lower++;
+	    while (a[upper] > pivot)
+		upper--;
+	    if (upper >= lower){
+		swap(a, lower, upper);
+		upper--;
+		lower++;
+	    }
 	}
-	swap(a, index, upper);
-	return index;
+	return pivotIndex;
     }
-
+    
     public void quicksort(int[] a){
 	quicksort(a, 0, a.length - 1);
     }
@@ -44,7 +50,7 @@ public class Quicksort {
     public static String toString(int[] i){
 	String s = "";
 	for (int x : i){
-	    s = s + x;
+	    s = s + x + " ";
 	}
 	return s;
     }
