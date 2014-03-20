@@ -24,16 +24,17 @@ public class Quicksort {
 	    pivotIndex = (upper+lower)/2;
 	int pivot = a[pivotIndex];
 	while (lower <= upper && upper < a.length && lower < a.length){
-	    while (a[lower] <= pivot)
+	    while (a[lower] < pivot)
 		lower++;
 	    while (a[upper] > pivot)
 		upper--;
 	    if (upper >= lower){
-		swap(a, lower, upper);
+		swap(a, lower, upper);}
 		upper--;
 		lower++;
-	    }
+	    
 	}
+	System.out.println(pivot);
 	return pivotIndex;
     }
     
@@ -41,6 +42,7 @@ public class Quicksort {
 	quicksort(a, 0, a.length - 1);
     }
     public void quicksort(int[] a, int lower, int upper){
+	System.out.println(toString(a));
 	if (a.length <= 1 || lower >= upper)
 	    return;
 	int pivotIndex = partition(a, lower, upper);
