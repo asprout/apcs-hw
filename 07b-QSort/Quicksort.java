@@ -34,8 +34,7 @@ public class Quicksort {
 		lower++;
 	    
 	}
-	System.out.println(pivot);
-	return pivotIndex;
+	return lower;
     }
     
     public void quicksort(int[] a){
