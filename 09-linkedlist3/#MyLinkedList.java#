@@ -1,0 +1,46 @@
+import java.util.*;
+import java.io.*;
+
+import java.util.*;
+import java.io.*;
+
+public class MyLinkedList {
+    private Node head;
+    private Node tail;
+
+    public MyLinkedList(){
+        head = new Node("");
+        tail = new Node("");
+    }
+
+    public void add(String s){
+        Node tmp = new Node(s);
+        tmp.setNext(head);
+        head = tmp;
+    }
+    public String toString(){
+        String s = "";
+        Node temp = head;
+	import java.util.*;
+	import java.io.*;
+
+	public class MyLinkedList {
+	    private Node head;
+	    private Node tail;
+
+	    public MyLinkedList(){
+		head = new Node("");
+		tail = new Node("");
+	    }
+
+	    public void add(String s){
+		Node tmp = new Node(s);
+		tmp.setNext(head);
+		head = tmp;
+	    }
+	    public String toString(){
+		String s = "";
+		Node temp = head;
+		while (temp != null){
+		    -UU-:----F1  MyLinkedList.java   Top L7     (Java/l Abbrev)---------------------
+

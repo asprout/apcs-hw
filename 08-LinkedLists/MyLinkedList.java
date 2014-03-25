@@ -1,14 +1,22 @@
+import java.io.*;
+import java.util.*;
+
 public class MyLinkedList {
     private Node head;
+    private int size;
 
     public MyLinkedList(){
-	head = null;
+	head = new Node("");
     }
     
     public void add(String s){
-	Node tmp = new Node(s);
-	tmp.setNext(head);
-	head = tmp;
+	Node n = new Node(s);
+	Node tmp = head;
+	for (int i = 0; i < size; i++){
+	    tmp = tmp.getNext();
+	}
+	tmp.setNext(n);
+	size++;
     }
     public String toString(){
 	String s = "";
@@ -32,6 +40,7 @@ public class MyLinkedList {
 	    n.setNext(temp.getNext());
 	    temp.setNext(n);
 	}
+	size++;
     }
     public String get(int i){
 	Node temp = head;
@@ -42,20 +51,13 @@ public class MyLinkedList {
     }
     public String remove(int i){
 	Node temp = head;
-	Node o;
-	if (i==0){
-	    o = head;
-	    head = head.getNext();
+	for (int x = 0; x < i; x++ ){
+	    temp = temp.getNext();
 	}
-	else {
-	    i = i + 1;
-	    for (int x = 0; x < i - 2; x++ ){
-		temp = temp.getNext();
-	    }
-	    o = temp.getNext();
-	    temp.setNext(o.getNext());
-	}
-	return o.getData();
+	Node tmp = temp.getNext();
+	temp.setNext(tmp.getNext().getNext());
+	size--;
+	return temp.getData();
     }
     public int find(String s){
 	Node temp = head;
@@ -86,13 +88,7 @@ public class MyLinkedList {
 	return old.getData();
     }
     public int length(){
-	Node temp = head;
-	int i = 0;
-	while (temp!= null){
-	    temp = temp.getNext();
-	    i++;
-	}
-	return i;
+        return size;
     }
 
 }
