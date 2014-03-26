@@ -1,0 +1,14 @@
+public class Driver {
+    public static void main(String[] args){
+	myLinkedList<String> a = new myLinkedList();
+	a.add("wan");
+	a.add("tew");
+	a.add("tree");
+	a.add("wong");
+	System.out.println(a);
+	a.remove(a.length() - 1);
+	System.out.println(a);
+	a.add(3, "four");
+	System.out.println(a);
+    }
+}
