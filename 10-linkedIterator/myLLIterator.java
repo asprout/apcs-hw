@@ -29,7 +29,7 @@ public class myLLIterator<E> implements Iterator<E> {
 	    throw new IllegalStateException();
 	}
 	else{
-	    
+	    //howdo?? 
 	}
 	canRemove = false;
     }
