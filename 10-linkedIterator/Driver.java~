@@ -1,4 +1,3 @@
-
 public class Driver {
     public static void main(String[] args){
 	myLinkedList<String> a = new myLinkedList();
@@ -20,9 +19,9 @@ public class Driver {
 	//ITERATOR TESTING
 
 	
-	myLLIterator<String> it = a.iterator();
+	Iterator<String> it = a.iterator();
 	System.out.println(it.hasNext());
-	System.out.println(it.next());
+	System.out.println(it.Next());
 	
     }
 }

@@ -1,26 +1,28 @@
-public class Node {
-    private String data;
-    private Node next;
 
-    public Node(String s) {
-	data=s;
+public class Node<E> {
+
+    private E data;
+    private Node<E> next;
+
+    public Node(E d) {
+	data = d;
+	next = null;
     }
-    public void setData(String s) {
-	data = s;
+
+    public void setData(E d) {
+	data = d;
     }
-    public String getData() {
+    public E getData() {
 	return data;
     }
-    public void setNext(Node n){
+    public void setNext(Node<E> n){
 	next = n;
     }
-
-    public Node getNext() {
+    public Node<E> getNext() {
 	return next;
     }
-    
     public String toString() {
-	return "Data: " + data;
+	return ""+data;
     }
 
 }
