@@ -1,89 +1,96 @@
 import java.io.*;
 import java.util.*;
 
-public class myLinkedList<E> implements Iterable<E>{
+public class MyLinkedList {
 
-    private Node<E> head;
-    private Node<E> tail;
+    private Node head;
+    private Node tail;
+    private int size;
 
     public Iterator<E> iterator() {
-	return new myLLIterator<E>(head.getNext());
+	//make and return iterator for this llist
     }
 
-    public myLinkedList() {
-	head = new Node<E>(null);
+    public MyLinkedList() {
+	head = new Node("");
 	tail = head;
     }
-    
-    public void add(E d) {
-	Node<E> tmp = new Node<E>(d);
-	if (length() < 1){
-	    head.setNext(tmp);
-	}
-	tail.setNext(tmp);
-	tail=tmp;
 
+    public void add(String s) {
+	Node n = new Node(s);
+	tail.setNext(n);
+	tail = n;
+	size++;
     }
 
-    public void add(int ind, E s){
-	Node<E> tmp = new Node<E>(s);
-	Node nod = head;
-	for (int i = 0; i < ind; i ++){
-	    nod = nod.getNext();
+    public void add(int i, String s) {
+	Node temp = new Node(s);
+	Node c = head;
+	for (int ind=0; ind < i; ind++) {
+	    c = c.getNext();
 	}
-	tmp.setNext(nod.getNext());
-	nod.setNext(tmp);
+	temp.setNext(c.getNext());
+	c.setNext(temp);
+	size++;
     }
 
-    public String toString() {
-	String s= "";
-	Node<E> tmp = head.getNext();
-	while (tmp !=null){
-	    s=s+tmp.getData()+" ";
-	    tmp=tmp.getNext();
+    public String get(int i) {
+	Node c = head.getNext();
+	if (i < 0) {
+	    return null;
 	}
-	return s;
-    }
-    public E get(int ind){
-	Node<E> nod = head;
-	for (int i = 0; i < ind ; i++){
-	    nod = nod.getNext();
+	for (int index=0; index < i; index++) {
+	    c = c.getNext();
 	}
-	return nod.getNext().getData();
-    }
-    
-    public E remove(int ind){
-	Node<E> nod = head;
-	for (int i = 0; i < ind ; i++){
-	    nod = nod.getNext();
-	}
-	Node<E> tmp = nod.getNext();
-	if (tmp != null)
-	    nod.setNext(nod.getNext().getNext());
-	else
-	    nod.setNext(null);
-	return tmp.getData();
+	return c.getData();
     }
 
-    public int length(){
-	Node<E> nod = head.getNext();
-	int count = 0;
-	while (nod != null){
-	    count++;
-	    nod = nod.getNext();
+    public String set(int i, String s) {
+	Node temp = new Node(s);
+	Node c = head;
+	for (int index = 0; index < i ; index++) {
+	    c = c.getNext();
 	}
-	return count;
+	temp.setNext(c.getNext().getNext());
+	Node replaced = c.getNext();
+	c.setNext(temp);
+	return replaced.getData();
     }
-    
-    public int find(E s){
-	Node<E> nod = head.getNext();
-	for (int i = 0; i< length(); i++){
-	    if (nod.getData().equals(s)){
-		return i;
+
+    public String remove(int i) {
+	Node c = head;
+	for (int index=0; index<i; index++) {
+	    c = c.getNext();
+	}
+	Node temp = c.getNext();
+	c.setNext(c.getNext().getNext());
+	size--;
+	return temp.getData();
+    }
+
+    public int find(String s) {
+	Node c = head;
+	for (int i=0; i<length(); i++) {
+	    if (c.getData() == s) {
+		return i-1;
 	    }
-	    nod = nod.getNext();
+	    c = c.getNext();
 	}
 	return -1;
     }
 
+    public int length() {
+	return size;
+    }
+
+
+    public String toString() {
+	String s = "";
+	Node temp = head;
+	while (temp.getNext() != null) {
+	    s = s + temp.getNext().getData();
+	    temp = temp.getNext();
+	}
+	return s;
+    }
 }
