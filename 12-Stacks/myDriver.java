@@ -1,4 +1,4 @@
-public class Driver {
+public class myDriver {
     public static void main(String[] args){
 	myStack stack = new myStack();
 	stack.push("one");

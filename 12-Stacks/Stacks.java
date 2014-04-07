@@ -58,8 +58,8 @@ public class Stacks {
     //toString
     public String toString(){
 	String tmp = "";
-        for (int i = 0 ; size < size; i++){
-	    tmp = tmp + stack[i];
+        for (int i = 0 ; i < size; i++){
+	    tmp = tmp + stack[i] + ", ";
 	}
 	return tmp;
     }
