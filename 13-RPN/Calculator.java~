@@ -1,0 +1,8 @@
+// if */+- pop twice, calc and push
+// else just push
+// use scanner to read string
+// use doubles
+
+import java.io.*;
+import java.util.*;
+
