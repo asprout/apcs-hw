@@ -4,6 +4,10 @@ public class Driver {
 	stack.push("one");
 	stack.push("two");
 	stack.push("three");
+	for (int i = 0; i < 10; i++){
+	    stack.push("push");
+	}
+	//Jake reminded me to check the grow method
 	System.out.println(stack);
 	while (!stack.isEmpty()){
 	    System.out.println(stack.pop());
