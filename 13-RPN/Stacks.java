@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Stack {
+public class Stacks {
 
     private int top;
     private int size;
