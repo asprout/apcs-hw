@@ -32,6 +32,9 @@ public class Queue {
 	s = head.getData();
 	head = head.getNext();
 	length--;
+	if (head == null){
+	    tail = null;
+	}
 	return s;
     }
 
@@ -48,12 +51,12 @@ public class Queue {
     }
 
     public String toString(){
-	String s = "Head: ";
+	String s = "";
 	Node temp = head;
         while (temp != null){
 	    s = s + temp.getData() + ", ";
 	    temp = temp.getNext();
 	}
-	return s + " :Tail";
+	return s;
     }
 }    
