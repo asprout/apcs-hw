@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Queue { 
+
+    private Node head, tail;
+    private int length;
+
+    public Queue() {
+	head = null;
+	tail = null;
+	length = 0;
+    }
+
+    public void enqueue(String s){
+	Node n = new Node(s);
+	if (length == 0){
+	    head = n;
+	    tail = n;
+	} else {
+	    tail.setNext(n);
+	    tail = n;
+	}
+	length++;
+    }
+
+    public String toString(){
+	String s = "Head: ";
+	Node temp = head;
+        while (temp != null){
+	    s = s + temp.getData() + ", ";
+	    temp = temp.getNext();
+	}
+	return s + " :Tail";
+    }
+    
