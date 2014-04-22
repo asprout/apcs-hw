@@ -19,7 +19,7 @@ public class ArrayQ {
     public String toString(){
 	String s = "";
 	int i = head;
-	while (i != tail - 1){
+	while (i != tail){
 	    s = s + q[i] + ", ";
 	    i++;
 	    if (i >= size){
@@ -32,6 +32,7 @@ public class ArrayQ {
     public void dequeue(){
 	q[head] = null;
 	head++;
+	length--;
 	if (head >= size){
 	    head = 0;
 	}
@@ -40,11 +41,13 @@ public class ArrayQ {
     public void enqueue(String s){
 	if (tail < size){
 	    q[tail] = s;
+	    tail++;
 	}
 	else {
 	    tail = tail % size;
 	    q[tail] = s;
 	}
+	length++;
     }
 
     public boolean isEmpty(){
