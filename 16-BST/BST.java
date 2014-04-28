@@ -5,6 +5,10 @@ public class BST {
     public BST(){
 	root = null;
     }
+
+    public BST(Node n){
+	root = n;
+    }
    
     public String toString(){	
 	return toString(root);
