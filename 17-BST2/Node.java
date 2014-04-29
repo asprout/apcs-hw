@@ -5,6 +5,8 @@ public class Node {
 
     public Node(int s) {
 	data=s;
+	left = null;
+	right = null;
     }
     public void setData(int s) {
 	data = s;
@@ -21,10 +23,23 @@ public class Node {
     public Node getLeft() {
 	return left;
     }
+
+    public boolean leftNull(){
+	if (left == null)
+	    return true;
+	return false;
+    }
+
+    public boolean rightNull(){
+	if (right == null)
+	    return true;
+	return false;
+    }
+
     public Node getRight() {
 	return right;
     }
     public String toString() {
-	return ""+data;
+	return ""+data+" (Left : "+left+" Right : "+right+" )";
     }
 }

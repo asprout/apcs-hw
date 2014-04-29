@@ -8,11 +8,20 @@ public class Driver {
 	System.out.println(b.search(1));
 	System.out.println(b.search(3));
 	b.insert(5);
-	b.insert(4);
-	b.insert(0);
+	System.out.println(b.search(5) + "\n");
 	System.out.println(b);
-	System.out.println(b.search(3));
+	System.out.println(b.search(2));
 	System.out.println(b.search2(3));
+	System.out.println(b.search(1));
+	System.out.println(b.search2(5));
+	b.delete(2);
+	System.out.println("DELETED 2 \n" + b);
+	b.delete(5);
+	System.out.println("DELETED 5 \n" + b);
+	b.delete(3);
+	System.out.println("DELETED 3 \n" + b);
+	b.delete(1);
+	System.out.println("DELETED 1 \n" + b);
 
     }
 }

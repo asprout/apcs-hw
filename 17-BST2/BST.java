@@ -45,7 +45,97 @@ public class BST {
 	}
 	return p;
     }
+
+    //gives the parent node of an element
+    // Node(0) if the element is in the root
+    public Node parentSearch(int x){
+	Node p = root;
+	Node ret = new Node(-1);
+	while (p != null && p.getData()!=x){
+	    if (p.getData() > x){
+		ret = p;
+		p = p.getLeft();
+	    }
+	    else {
+		ret = p;
+		p = p.getRight();
+	    }
+	}
+	return ret;
+    }
+
+    public Node largestRight(Node n){
+	if (n.leftNull())
+	    return n;
+	n = n.getLeft();
+	while (n.getRight() != null){
+	    n = n.getRight();
+	}
+	return n;
+    }
     
+    public Node smallestLeft(Node n){
+	if (n.rightNull())
+	    return n;
+	n = n.getRight();
+	while (n.getLeft() != null){
+	    n = n.getLeft();
+	}
+	return n;
+    }
+
+    public void delete(int x){
+	Node current = search(x);
+	Node place = current;
+	if (current == null)
+	    return;
+	else if (!current.leftNull() && !current.rightNull()){
+	    Node rep = largestRight(current);
+	    Node temp = parentSearch(largestRight(current).getData());
+	    System.out.println("c"+rep);
+	    if (!temp.equals(current)){
+		temp.setRight(null);
+	    }else {
+		current.setLeft(null);
+	    }
+	    rep.setRight(current.getRight());
+	    rep.setLeft(current.getLeft());
+	    current = rep;
+	    if (place.equals(root))
+		root = rep;
+	}
+	else {
+	    Node par = parentSearch(current.getData());
+	    if (current.leftNull() && current.rightNull()){
+		if (par.getData() > current.getData())
+		    par.setLeft(null);
+		else
+		    par.setRight(null);
+		current = null;
+	    }
+	    else if (current.leftNull()){
+		current = current.getRight();
+	    	if (!(current.rightNull() == true))
+	    	    current.setRight(null);
+	    }else{ 
+	    	current = current.getLeft();
+	    	if (!(current.leftNull() == true))
+	    	    current.setLeft(null);
+	    }
+	    if (place.equals(root))
+		    root = par;
+	}
+    }
+	// else if (current.getLeft() == null && current.getRight() == null){
+	//     Node p =  parentSearch(x);
+	//     if ( p.getData > x)
+	// 	p.setLeft(null);
+	//     else
+	// 	p.setRight(null);
+	// else if ((current.getLeft() != null && current.getRight() == null) ||
+	// 	 (current.getLeft() == null && current.getRight() != null)){
+	    
+ 
     public void insert(int x){
 	if (root == null){
 	    root = new Node(x);
