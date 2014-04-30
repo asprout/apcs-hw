@@ -5,6 +5,18 @@
 //CHILDREN: replace the deleted value with largest left or smallest right                   we find it by going as far towards one direction as possible, delete
 //ROOT: dummy node of smallest possible value 
 
+//PRE-ORDER TRAVERSAL: process, traverse(left), traverse(right)
+//IN-ORDER TRAVERSAL: traverse(left), process, traverse(right)
+//POST-ORDER TRAVERSAL: traverse(left), traverse(right), process
+//expression tree
+/* (a+b)*(c-d), ab+cd-*, (* (+ a b) (- c d))
+         *
+	/ \
+       +   -
+      / \ / \
+     a  b c  d
+*/
+
 
 public class BST {
     
@@ -36,6 +48,16 @@ public class BST {
     public void print(){
 	print(root,0);
 	System.out.println();
+    }
+
+    public void printInOrder(Node a, int b){
+	if (a == null)
+	    System.out.println(""+null);
+	else{
+	    print(a.getLeft(), b+1);
+	    System.out.println(""+a.getData());
+	    print(a.getRight(), b+1);
+	}
     }
 
     public void print(Node a, int b){
@@ -145,15 +167,6 @@ public class BST {
 		    root = par;
 	}
     }
-	// else if (current.getLeft() == null && current.getRight() == null){
-	//     Node p =  parentSearch(x);
-	//     if ( p.getData > x)
-	// 	p.setLeft(null);
-	//     else
-	// 	p.setRight(null);
-	// else if ((current.getLeft() != null && current.getRight() == null) ||
-	// 	 (current.getLeft() == null && current.getRight() != null)){
-	    
  
     public void insert(int x){
 	if (root == null){
