@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Work {
+
+    public static void main(String[] args){
+	long start = System.currentTimeMillis();
+
+	TreeMap tree = new TreeMap();
+	tree.put("a", 1);
+	tree.put("b", 2);
+	tree.put("c", 3);
+	
+
+	long total = System.currentTimeMillis() - start;
+	System.out.println(total);
+
+
+	start = System.currentTimeMillis();
+	
+	HashMap hash = new HashMap();
+	hash.put("a", 1);
+	hash.put("b", 2);
+	tree.put("c", 3);
+
+	
+	total = System.currentTimeMillis() - start;
+	System.out.println(total);
+
+    }
+}
